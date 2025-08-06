@@ -1,24 +1,39 @@
-# Location_Detection
+# Location Detection System
 
-Using a large dataset of images collected across the IIIT-H campus, I built a multi-stage system to predict the Region ID, Latitude, Longitude, and Camera Angle for a given image.
+This project involves a multi-stage system designed to predict the **Region ID**, **Latitude**, **Longitude**, and **Camera Angle** for a given image taken on the IIIT-H campus.
 
-The system consists of three models:
+## Overview
 
-    A Region ID classifier that predicts which of the 15 campus zones the image was taken in.
+Using a large dataset of campus images, the system was developed in three stages:
 
-    A Latitude and Longitude regressor, trained conditioned on the predicted Region ID, to localize the image more precisely within the predicted region.
+1. **Region ID Classifier**  
+   Predicts which of the 15 campus zones the image was captured in.
 
-    An Angle predictor that estimates the direction (in degrees) the camera was facing when the image was captured.
+2. **Latitude and Longitude Regressor**  
+   Trained conditionally based on the predicted Region ID to more precisely localize the image within the corresponding region.
 
-The latitude and longitude values were appropriately scaled for model training, while the Region ID and angle values remained unchanged.
+3. **Camera Angle Predictor**  
+   Estimates the direction (in degrees) the camera was facing when the image was taken.
 
-The system was evaluated using:
+## Preprocessing
 
-    Accuracy (up to 6 decimal places) for Region ID.
+- **Latitude and Longitude** values were scaled for improved model convergence.
+- **Region ID** and **Angle** values were used as-is.
 
-    Mean Squared Error (MSE) for Latitude, Longitude, and Angle.
+## Evaluation Metrics
 
-This staged approach allowed the model to first localize the broader region before refining the exact coordinates, improving both accuracy and interpretability.
+| Task                      | Metric                     | Value         |
+|---------------------------|----------------------------|---------------|
+| Region ID Classification | Accuracy                   | `0.970189701` |
+| Latitude/Longitude        | Mean Squared Error (MSE)   | `58219.8947037` |
+| Camera Angle              | 1 / Mean Absolute Angular Error (1/MAAE) | `0.0384695` |
+
+## Key Highlights
+
+- A hierarchical design that improves accuracy by localizing the broader region first.
+- Separate models for each sub-task ensure modularity and interpretability.
+- Evaluation based on standard regression and classification metrics.
+
 
 
 
