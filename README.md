@@ -20,4 +20,6 @@ The system was evaluated using:
 
 This staged approach allowed the model to first localize the broader region before refining the exact coordinates, improving both accuracy and interpretability.
 
-The codebase is in the Location_Detection directory
+
+
+### The codebase is in the Location_Detection directory
