@@ -4,7 +4,7 @@ This project involves a multi-stage system designed to predict the **Region ID**
 
 ## Overview
 
-Using a large dataset of campus images, the system was developed in three stages:
+Using a large dataset of campus images (collected by students including me), the system was developed in three stages:
 
 1. **Region ID Classifier**  
    Predicts which of the 15 campus zones the image was captured in.
